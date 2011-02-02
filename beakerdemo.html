@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+ 
+<!-- CSS --> 
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<!-- Link to Raphael -->
+<script src ="raphael-min.js"></script>
+
+<script language = "JavaScript">
+//Functions for Application
+
+var animate = function (percentage, colour) {
+	
+	var current_height = liquid.attr('height');
+	var current_y = liquid.attr('y');
+	var current_colour = liquid.attr('fill');
+	//console.log(current_colour);
+	//console.log(colour);
+	
+	
+	var new_height = percentage / 100 * 160;
+	var new_y = 320 - new_height;
+
+	
+	var anim_time = 2000;
+	
+	if (percentage != null) {				
+		liquid.animate({cy: current_y, y: new_y}, anim_time);
+		liquid.animate({height: current_height, height: new_height}, anim_time);
+	}
+	
+	if (colour != '') {				
+		liquid.animate ({fill: current_colour, fill: colour}, anim_time);
+	}
+}
+
+
+</script>
+
+
+</head>
+<body>
+
+<div id= 'wrapper'>
+	<div id = 'app'>		
+		
+		<div id = 'view'>		
+			<script language="JavaScript">
+								
+		
+			// Creates canvas 800 × 650 inside 'view' div	
+			var canvas = Raphael('view', '100%', 650);
+			var centre_x = (800-175)/2;
+			
+			
+			//Variables for empty and full x_vals
+			var empty_y = 320;
+			var full_y = 160;
+			
+			var empty_height = 0;
+			var full_height = 160;
+			
+			//var percentage = full/empty*100
+			
+			//Draw Liquid (Xpos, Ypos, width, height )
+			var liquid = canvas.rect(centre_x + 18, empty_y, 152, empty_height);
+			liquid.attr('rotation', 180);
+						
+			liquid.attr('fill', '#990066');
+			liquid.attr('stroke', '');
+			
+			var beaker_image = canvas.image("beaker.png", centre_x, 100, 175, 217 );
+			
+				
+			</script>
+		
+		</div> <!-- End View -->
+		
+		<div id = "controls">
+		
+			<div id ='slider-control'>
+			</div> <!-- End slider-control -->
+			
+			<div id = 'form-control'>
+					<form action = "" name = 'control_form'>
+					Liquid Level (0-100):<br /><input type="text" name = "liquid_level" /><br />
+					Liquid Colour (Web Colour or Hex Code):<br /><input type="text" name="liquid_colour" /><br />
+					<!--Replace alert with JavaScript Function Name--> 
+					<input type = "button" onclick = "animate(document.control_form.liquid_level.value, document.control_form.liquid_colour.value)" value = "Submit"> 
+					</form>
+				
+			</div> <!-- End form control-->
+		
+		</div> <!-- End controls -->
+		
+	</div> <!-- End app -->
+</div> <!-- End wrapper -->
+
+</body>
+</html>

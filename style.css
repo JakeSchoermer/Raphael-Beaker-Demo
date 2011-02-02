@@ -1,0 +1,76 @@
+/*Main CSS File for Beaker Demo*/
+
+#wrapper {
+		background-color: #CCCCCC;
+		position:absolute;
+		top:0;
+		bottom:0;
+		left:0;
+		right:0;
+}
+
+#app {
+		background-color:white;
+		width: 800px;
+		height: 600px;
+		
+		
+		position: absolute;
+		top:0; right:0; bottom:0; left:0;
+		margin: auto;
+		
+		/*Centre Div both Horizontally and Vertically*/
+		left:expression(this.parentNode.clientWidth/2 - this.clientWidth/2 + " px");
+
+		overflow:hidden;
+		/*CSS3 Drop Shadows -- Recent Webkit and Mozilla Only*/
+		-webkit-box-shadow: 10px 10px 5px #333;
+		-webkit-padding: 5px 5px 5px 15px;
+		-moz-box-shadow: 10px 10px 5px #333;
+		-moz-padding: 5px 5px 5px 15px;
+}
+
+
+#app .img {
+	text-align:center;
+}
+
+#view {
+	position:absolute;
+	height: 650px;
+	top:0;
+	left:0;
+	right:0;
+}
+
+#controls {
+	height:150px;
+	position: absolute;
+	left:0;
+	right:0;
+	bottom:0;
+}
+
+#controls div {
+	padding: 10px;*/
+}
+
+#slider-control {
+	background-color:blue;
+	position:relative;
+	float:left;
+	width:380px;
+	height:130px;
+}
+
+#form-control {
+	background-color:green;
+	position:relative;
+	float:right;
+	width:380px;
+	height:130px;
+}
+
+#form-control form {
+	
+}
